@@ -1,0 +1,232 @@
+[0m11:42:42.366061 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204AF5174D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204AD4A9BD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204B1431450>]}
+
+
+============================== 11:42:42.369960 | 8df9b485-9370-4d57-b913-9e5d90f5e59a ==============================
+[0m11:42:42.369960 [info ] [MainThread]: Running with dbt=1.10.1
+[0m11:42:42.370936 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\umar.giravi\\.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'invocation_command': 'dbt init healthcare_dbt', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:42:42.388499 [debug] [MainThread]: Starter project path: C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\include\starter_project
+[0m11:42:42.411689 [info ] [MainThread]: 
+Your new dbt project "healthcare_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:42:42.412322 [info ] [MainThread]: Setting up your profile.
+[0m11:46:38.039168 [error] [MainThread]: Encountered an error:
+
+[0m11:46:38.043876 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\cli\requires.py", line 161, in wrapper
+    result, success = func(*args, **kwargs)
+                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\cli\requires.py", line 111, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\cli\main.py", line 483, in init
+    results = task.run()
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\task\init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\task\init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\task\init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\task\init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+                  ~~~~~~~~~~~~^
+        text, default=default, hide_input=hide_input, type=type
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\click\termui.py", line 168, in prompt
+    value = prompt_func(prompt)
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\click\termui.py", line 151, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m11:46:38.045037 [debug] [MainThread]: Command `dbt init` failed at 11:46:38.044906 after 235.84 seconds
+[0m11:46:38.045360 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204B15C5350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204B153F770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204B1590490>]}
+[0m11:46:38.045704 [debug] [MainThread]: Flushing usage events
+[0m11:46:38.326448 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:46:43.108029 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026375F634D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026372EF5BD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026376DA1450>]}
+
+
+============================== 11:46:43.111815 | 98acbad1-2eed-47e0-b36a-4f5d7e6b9771 ==============================
+[0m11:46:43.111815 [info ] [MainThread]: Running with dbt=1.10.1
+[0m11:46:43.112670 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\umar.giravi\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m11:46:43.128755 [info ] [MainThread]: dbt version: 1.10.1
+[0m11:46:43.129304 [info ] [MainThread]: python version: 3.13.5
+[0m11:46:43.129783 [info ] [MainThread]: python path: C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Scripts\python.exe
+[0m11:46:43.130299 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m11:46:43.189088 [info ] [MainThread]: Using profiles dir at C:\Users\umar.giravi\.dbt
+[0m11:46:43.189781 [info ] [MainThread]: Using profiles.yml file at C:\Users\umar.giravi\.dbt\profiles.yml
+[0m11:46:43.190545 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\umar.giravi\healthcare_analytics_pipeline\dbt_project.yml
+[0m11:46:43.191495 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m11:46:43.192777 [debug] [MainThread]: Command `dbt debug` failed at 11:46:43.192618 after 0.28 seconds
+[0m11:46:43.193089 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026376EC1CD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026376F66210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026376ECD480>]}
+[0m11:46:43.193384 [debug] [MainThread]: Flushing usage events
+[0m11:46:43.417275 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:48:29.440258 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A0DA5934D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A0D8565BD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A0DC431450>]}
+
+
+============================== 11:48:29.444156 | 836a2688-521c-4c6b-8df4-ec2566024c1b ==============================
+[0m11:48:29.444156 [info ] [MainThread]: Running with dbt=1.10.1
+[0m11:48:29.444695 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': 'C:\\Users\\umar.giravi\\.dbt', 'log_path': 'logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m11:48:29.460134 [info ] [MainThread]: dbt version: 1.10.1
+[0m11:48:29.460900 [info ] [MainThread]: python version: 3.13.5
+[0m11:48:29.461379 [info ] [MainThread]: python path: C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Scripts\python.exe
+[0m11:48:29.461798 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m11:48:29.520440 [info ] [MainThread]: Using profiles dir at C:\Users\umar.giravi\.dbt
+[0m11:48:29.521011 [info ] [MainThread]: Using profiles.yml file at C:\Users\umar.giravi\.dbt\profiles.yml
+[0m11:48:29.521418 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\umar.giravi\healthcare_analytics_pipeline\dbt_project.yml
+[0m11:48:29.521756 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m11:48:29.522420 [debug] [MainThread]: Command `dbt debug` failed at 11:48:29.522320 after 0.27 seconds
+[0m11:48:29.522706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A0DC551CD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A0DC5F6210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A0DC55D480>]}
+[0m11:48:29.523000 [debug] [MainThread]: Flushing usage events
+[0m11:48:29.797155 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:48:44.238734 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D2B1934D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D2A165BD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D2D031450>]}
+
+
+============================== 11:48:44.242474 | d0322294-e2af-4470-9d0b-d283cdfa70f9 ==============================
+[0m11:48:44.242474 [info ] [MainThread]: Running with dbt=1.10.1
+[0m11:48:44.243018 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\umar.giravi\\.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt run', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:48:44.243394 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\umar.giravi\healthcare_analytics_pipeline\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m11:48:44.244206 [debug] [MainThread]: Command `dbt run` failed at 11:48:44.244103 after 0.17 seconds
+[0m11:48:44.244481 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D2D071480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D2BE83E30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D2BECCAF0>]}
+[0m11:48:44.244753 [debug] [MainThread]: Flushing usage events
+[0m11:48:44.478847 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:50:56.365366 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BAEC5A34D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BAEA565BD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BAEE431450>]}
+
+
+============================== 11:50:56.369381 | d305dfae-9648-43e4-b5eb-56459f041120 ==============================
+[0m11:50:56.369381 [info ] [MainThread]: Running with dbt=1.10.1
+[0m11:50:56.370062 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\umar.giravi\\.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt init', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True'}
+[0m11:51:11.757062 [debug] [MainThread]: Starter project path: C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\include\starter_project
+[0m11:51:11.798994 [info ] [MainThread]: 
+Your new dbt project "healthcare_analytics_pipline" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:51:11.799656 [info ] [MainThread]: Setting up your profile.
+[0m11:51:25.638103 [error] [MainThread]: Encountered an error:
+
+[0m11:51:25.642219 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\cli\requires.py", line 161, in wrapper
+    result, success = func(*args, **kwargs)
+                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\cli\requires.py", line 111, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\cli\main.py", line 483, in init
+    results = task.run()
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\task\init.py", line 261, in setup_profile
+    adapter = self.ask_for_adapter_choice()
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\task\init.py", line 242, in ask_for_adapter_choice
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\click\termui.py", line 168, in prompt
+    value = prompt_func(prompt)
+  File "C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\click\termui.py", line 151, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m11:51:25.643381 [debug] [MainThread]: Command `dbt init` failed at 11:51:25.643266 after 29.47 seconds
+[0m11:51:25.643697 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BAEE46AEA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BAEE5303B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BAEE33D8C0>]}
+[0m11:51:25.644010 [debug] [MainThread]: Flushing usage events
+[0m11:51:25.914681 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:51:44.642828 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021FD19A74D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021FCF935BD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021FD3831450>]}
+
+
+============================== 11:51:44.646853 | 608d34b8-2706-4959-b32f-b3d73963f9cc ==============================
+[0m11:51:44.646853 [info ] [MainThread]: Running with dbt=1.10.1
+[0m11:51:44.647733 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\umar.giravi\\.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt init', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:51:59.910549 [debug] [MainThread]: Starter project path: C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Lib\site-packages\dbt\include\starter_project
+[0m11:52:00.000516 [info ] [MainThread]: 
+Your new dbt project "healthcare_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:52:00.001603 [info ] [MainThread]: Setting up your profile.
+[0m11:53:59.166789 [info ] [MainThread]: Profile healthcare_dbt written to C:\Users\umar.giravi\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m11:53:59.168625 [debug] [MainThread]: Command `dbt init` succeeded at 11:53:59.168392 after 134.73 seconds
+[0m11:53:59.169369 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021FD39CCFC0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021FD3362F90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021FD373D8C0>]}
+[0m11:53:59.170141 [debug] [MainThread]: Flushing usage events
+[0m11:53:59.550541 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:55:36.925777 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D9834234D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D981469BD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D985331450>]}
+
+
+============================== 11:55:36.934272 | e815de60-8e3c-455b-a23c-48c124e914cd ==============================
+[0m11:55:36.934272 [info ] [MainThread]: Running with dbt=1.10.1
+[0m11:55:36.935353 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\umar.giravi\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m11:55:36.967649 [info ] [MainThread]: dbt version: 1.10.1
+[0m11:55:36.968373 [info ] [MainThread]: python version: 3.13.5
+[0m11:55:36.969005 [info ] [MainThread]: python path: C:\Users\umar.giravi\healthcare_analytics_pipeline\venv\Scripts\python.exe
+[0m11:55:36.969296 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m11:55:37.050065 [info ] [MainThread]: Using profiles dir at C:\Users\umar.giravi\.dbt
+[0m11:55:37.050907 [info ] [MainThread]: Using profiles.yml file at C:\Users\umar.giravi\.dbt\profiles.yml
+[0m11:55:37.051545 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\umar.giravi\healthcare_analytics_pipeline\dbt_project.yml
+[0m11:55:37.052067 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m11:55:37.053067 [debug] [MainThread]: Command `dbt debug` failed at 11:55:37.052920 after 0.35 seconds
+[0m11:55:37.053470 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D985451CD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D9854F1490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D98545D370>]}
+[0m11:55:37.053880 [debug] [MainThread]: Flushing usage events
+[0m11:55:37.317189 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:20:24.687110 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023B451134D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023B44165BD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023B47031450>]}
+
+
+============================== 14:20:24.697031 | a604c795-5e8a-4c9f-8b3e-c97536c50e19 ==============================
+[0m14:20:24.697031 [info ] [MainThread]: Running with dbt=1.10.1
+[0m14:20:24.698324 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\umar.giravi\\.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt run', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m14:20:24.699181 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\umar.giravi\healthcare_analytics_pipeline\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m14:20:24.700801 [debug] [MainThread]: Command `dbt run` failed at 14:20:24.700608 after 0.24 seconds
+[0m14:20:24.701514 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023B47071480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023B45E13E30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023B45E5CAF0>]}
+[0m14:20:24.702093 [debug] [MainThread]: Flushing usage events
+[0m14:20:25.079861 [debug] [MainThread]: An error was encountered while trying to flush usage events

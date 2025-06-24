@@ -1,0 +1,16 @@
+admission_id,patient_id,admission_date,discharge_date,reason,readmitted
+1001,1,2023-01-05,2023-01-10,Pneumonia,No
+1002,1,2023-02-01,2023-02-08,Post-op Complication,Yes
+1003,2,2023-03-12,2023-03-16,Chest Pain,No
+1004,3,2023-04-01,2023-04-05,Fracture,No
+1005,4,2023-04-22,2023-04-27,Asthma,Yes
+1006,5,2023-05-10,2023-05-15,Diabetes,No
+1007,6,2023-06-03,2023-06-08,Flu,No
+1008,7,2023-07-19,2023-07-25,Kidney Stones,Yes
+1009,8,2023-08-11,2023-08-14,Migraine,No
+1010,9,2023-09-02,2023-09-06,Infection,No
+1011,10,2023-10-09,2023-10-15,Surgery,Yes
+1012,11,2023-11-13,2023-11-17,Heart Disease,No
+1013,12,2023-12-01,2023-12-05,Fever,No
+1014,13,2024-01-20,2024-01-25,Hypertension,Yes
+1015,14,2024-02-10,2024-02-15,Fracture,No

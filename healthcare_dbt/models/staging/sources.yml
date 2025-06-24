@@ -1,0 +1,51 @@
+version: 2
+
+sources:
+  - name: healthcare
+    description: "Healthcare data source"
+    database: healthcare_db
+    schema: analytics
+    tables:
+      - name: patients
+        description: "Patient demographics and information"
+        columns:
+          - name: patient_id
+            description: "Unique identifier for each patient"
+          - name: first_name
+            description: "First name of the patient"
+          - name: last_name
+            description: "Last name of the patient"
+          - name: date_of_birth
+            description: "Date of birth of the patient"
+          - name: gender
+            description: "Gender of the patient"
+      - name: vitals
+        description: "Patient vital signs"
+        columns:
+          - name: vital_id
+            description: "Unique identifier for each vital test"
+          - name: admission_id
+            description: "Unique identifier for the patient's admission"
+          - name: heart_rate
+            description: "Heart rate of the patient in beats per minute"
+          - name: blood_pressure
+            description: "Blood pressure of the patient in mmHg"
+          - name: temperature
+            description: "Body temperature of the patient in degrees Celsius"
+          - name: date
+            description: "Date of the vital signs measurement"
+      - name: admissions
+        description: "Patient admissions data"
+        columns:
+          - name: admission_id
+            description: "Unique identifier for each admission"
+          - name: patient_id
+            description: "Unique identifier for the patient"
+          - name: admission_date
+            description: "Date of admission to the hospital"
+          - name: discharge_date
+            description: "Date of discharge from the hospital"
+          - name: reason
+            description: "Primary diagnosis for the admission"
+          - name: readmitted
+            description: "Indicates if the patient was readmitted"
