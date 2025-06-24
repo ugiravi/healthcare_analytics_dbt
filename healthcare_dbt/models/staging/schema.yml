@@ -1,0 +1,81 @@
+version: 2
+
+models:
+  - name: stg_patients
+    description: "Staging model for patient demographic data, sourced from raw patients table"
+    columns:
+      - name: patient_id
+        description: "Unique identifier for each patient"
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: "Patient's first name"
+      - name: last_name
+        description: "Patient's last name"
+      - name: gender_cleaned
+        description: "Normalized gender value (Male/Female/Other)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Male', 'Female', 'Other']
+      - name: date_of_birth
+        description: "Date of birth of the patient"
+        tests:
+          - not_null
+
+  - name: stg_admissions
+    description: "Staging model for patient admissions"
+    columns:
+      - name: admission_id
+        description: "Unique admission identifier"
+        tests:
+          - not_null
+          - unique
+      - name: patient_id
+        description: "Foreign key to patient"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_patients')
+              field: patient_id
+      - name: admission_date
+        description: "Date patient was admitted"
+        tests:
+          - not_null
+      - name: discharge_date
+        description: "Date patient was discharged"
+      - name: reason
+        description: "Reason for admission"
+      - name: readmitted
+        description: "Indicates if patient was readmitted"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Yes', 'No']
+
+  - name: stg_vitals
+    description: "Staging model for patient vital signs"
+    columns:
+      - name: vital_id
+        description: "Unique identifier for vital sign record"
+        tests:
+          - not_null
+          - unique
+      - name: admission_id
+        description: "Foreign key to admission record"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_admissions')
+              field: admission_id
+      - name: heart_rate
+        description: "Heart rate measurement"
+      - name: blood_pressure
+        description: "Blood pressure measurement"
+      - name: temperature
+        description: "Body temperature"
+      - name: date
+        description: "Timestamp of vital signs"
+        tests:
+          - not_null
