@@ -5,47 +5,87 @@ sources:
     description: "Healthcare data source"
     database: healthcare_db
     schema: analytics
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 1, period: day}
+    loaded_at_field: _etl_loaded_at
     tables:
       - name: patients
-        description: "Patient demographics and information"
+        description: "Patient demographic data"
+        freshness: null
         columns:
           - name: patient_id
-            description: "Unique identifier for each patient"
+            description: "Primary key for patients"
+            tests:
+              - not_null
+              - unique
           - name: first_name
             description: "First name of the patient"
           - name: last_name
             description: "Last name of the patient"
           - name: date_of_birth
             description: "Date of birth of the patient"
+            tests:
+              - not_null
           - name: gender
-            description: "Gender of the patient"
+            description: "Gender of the Patient"
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['M', 'F']
       - name: vitals
-        description: "Patient vital signs"
+        description: "Vital signs data for patients"
+        freshness: null
         columns:
           - name: vital_id
-            description: "Unique identifier for each vital test"
+            description: "Primary key for vitals"
+            tests:
+              - not_null
+              - unique
           - name: admission_id
-            description: "Unique identifier for the patient's admission"
-          - name: heart_rate
-            description: "Heart rate of the patient in beats per minute"
+            description: "Foreign key to admissions table"
+            tests:
+              - not_null
+              - relationships:
+                  to: ref('admissions')
+                  field: admission_id
           - name: blood_pressure
-            description: "Blood pressure of the patient in mmHg"
+            description: "Blood pressure reading"
+          - name: heart_rate
+            description: "Heart rate reading"
           - name: temperature
-            description: "Body temperature of the patient in degrees Celsius"
+            description: "Body temperature reading"
           - name: date
-            description: "Date of the vital signs measurement"
+            description: "Date of the vital signs reading"
+            tests:
+              - not_null
       - name: admissions
-        description: "Patient admissions data"
+        description: "Admission records for patients"
+        freshness: null
         columns:
           - name: admission_id
-            description: "Unique identifier for each admission"
+            description: "Primary key for admissions"
+            tests:
+              - not_null
+              - unique
           - name: patient_id
-            description: "Unique identifier for the patient"
+            description: "Foreign key to patients table"
+            tests:
+              - not_null
+              - relationships:
+                  to: ref('patients')
+                  field: patient_id
           - name: admission_date
-            description: "Date of admission to the hospital"
+            description: "Date of admission"
+            tests:
+              - not_null
           - name: discharge_date
-            description: "Date of discharge from the hospital"
+            description: "Date of discharge"
           - name: reason
-            description: "Primary diagnosis for the admission"
+            description: "Reason for admission"
           - name: readmitted
-            description: "Indicates if the patient was readmitted"
+            description: "Readmission status"
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['Yes', 'No']
