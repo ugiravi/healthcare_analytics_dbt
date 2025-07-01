@@ -1,4 +1,3 @@
-
 select 
     a.admission_id,
     a.patient_id,
