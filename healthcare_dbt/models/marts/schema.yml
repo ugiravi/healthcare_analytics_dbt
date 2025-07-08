@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: admissions
+    description: "Mart model combining admissions with vital summaries and readmission flags."
+    columns:
+      - name: admission_id
+        description: "Unique admission identifier"
+        tests:
+          - unique
+          - not_null
+      - name: patient_id
+        description: "Unique patient identifier"
+        tests:
+          - not_null
+      - name: admission_date
+        description: "Admission date"
+      - name: discharge_date
+        description: "Discharge date"
+      - name: length_of_stay
+        description: "Number of days patient stayed admitted"
+      - name: age_at_admission
+        description: "Patient's age at admission"
+      - name: readmitted
+        description: "Whether the patient was readmitted"
+      - name: avg_heart_rate
+        description: "Average heart rate during admission"
+      - name: max_heart_rate
+        description: "Maximum heart rate during admission"
+      - name: min_heart_rate
+        description: "Minimum heart rate during admission"
+      - name: avg_temperature
+        description: "Average temperature during admission"
+      - name: max_temperature
+        description: "Maximum temperature during admission"
+      - name: min_temperature
+        description: "Minimum temperature during admission"
+      - name: was_readmitted
+        description: "Flag indicating if patient was ever readmitted"
+  
+  - name: core_patients
+    description: "Patient-level mart model combining demographic info with readmission and risk flags."
+    columns:
+      - name: patient_id
+        description: "Unique patient identifier"
+        tests:
+          - unique
+          - not_null
+      - name: full_name
+        description: "Patient full name"
+        tests:
+          - not_null
+      - name: gender
+        description: "Patient gender"
+        tests:
+          - accepted_values:
+              values: ['Male', 'Female', 'Other']
+      - name: date_of_birth
+        description: "Patient date of birth"
+      - name: total_admissions
+        description: "Total admissions for the patient"
+      - name: total_readmissions
+        description: "Total readmissions for the patient"
+      - name: was_readmitted
+        description: "Boolean flag indicating if patient was ever readmitted"
+      - name: high_heart_rate
+        description: "Boolean flag for high heart rate events"
+      - name: high_temperature
+        description: "Boolean flag for high temperature events"
+      - name: is_high_risk
+        description: "Boolean flag indicating if patient is high risk"

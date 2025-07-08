@@ -5,7 +5,7 @@ select
     a.discharge_date,
     a.reason,
     a.readmitted,
-    (a.admission_date - a.discharge_date) as length_of_stay,
+    {{length_of_stay('a.admission_date', 'a.discharge_date')}} as length_of_stay,
     p.first_name,
     p.last_name,
     p.full_name,
