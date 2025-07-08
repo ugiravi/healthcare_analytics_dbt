@@ -32,7 +32,7 @@ sources:
             tests:
               - not_null
               - accepted_values:
-                  values: ['M', 'F']
+                  values: ['Male', 'Female', 'M', 'F']
       - name: vitals
         description: "Vital signs data for patients"
         freshness: null

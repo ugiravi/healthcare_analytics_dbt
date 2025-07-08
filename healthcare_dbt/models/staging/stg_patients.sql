@@ -6,5 +6,4 @@ select
     {{ format_gender('gender')}} as gender_cleaned,
     date_of_birth,
     upper(first_name || ' ' || last_name) as full_name
-
 from {{ source('healthcare', 'patients') }} as p

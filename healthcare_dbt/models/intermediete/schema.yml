@@ -1,0 +1,169 @@
+version: 2
+
+models:
+  - name: admissions_enriched
+    description: |
+      This model enriches the raw admissions data by joining patient demographic information,
+      calculating length of stay and age at admission, and cleaning gender values.
+
+    columns:
+      - name: admission_id
+        description: Unique identifier for each admission.
+        tests:
+          - not_null
+          - unique
+
+      - name: patient_id
+        description: Unique identifier for each patient.
+        tests:
+          - not_null
+
+      - name: admission_date
+        description: Date the patient was admitted to the hospital.
+        tests:
+          - not_null
+
+      - name: discharge_date
+        description: Date the patient was discharged from the hospital.
+        tests:
+          - not_null
+
+      - name: reason
+        description: Reason for the admission.
+
+      - name: readmitted
+        description: Indicates whether the patient was readmitted ('Yes' or 'No').
+
+      - name: first_name
+        description: Patient's first name.
+
+      - name: last_name
+        description: Patient's last name.
+
+      - name: full_name
+        description: Patient's full name (concatenation of first and last name).
+
+      - name: gender
+        description: Cleaned gender value, standardized using the gender_cleaned macro.
+
+      - name: age_at_admission
+        description: Age of the patient (in years) at the time of admission.
+
+      - name: length_of_stay
+        description: Number of days between admission and discharge.
+        tests:
+          - not_null
+          - expression_is_true:
+              expression: "length_of_stay >= 0"
+
+  - name: readmission_flags
+    description: |
+      Aggregates admissions per patient to calculate total admissions,
+      total readmissions, and flags if a patient was ever readmitted.
+
+    columns:
+      - name: patient_id
+        description: Unique identifier for each patient.
+        tests:
+          - not_null
+          - unique
+
+      - name: total_admissions
+        description: Total number of admissions for the patient.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_patients')
+              field: patient_id
+
+      - name: total_readmissions
+        description: Total number of admissions where the patient was readmitted.
+
+      - name: total_non_readmissions
+        description: Total number of admissions where the patient was not readmitted.
+
+      - name: was_readmitted
+        description: Boolean flag indicating if the patient was ever readmitted.
+        tests:
+          - not_null
+  - name: daily_vital_trends
+    description: |
+      Aggregates vital sign measurements by admission and date to show
+      daily trends in heart rate and temperature.
+
+    columns:
+      - name: admission_id
+        description: Unique identifier for each hospital admission.
+        tests:
+          - not_null
+
+      - name: date
+        description: Date the vital signs were recorded.
+        tests:
+          - not_null
+
+      - name: avg_heart_rate
+        description: Average heart rate recorded for the admission on this date.
+
+      - name: max_heart_rate
+        description: Maximum heart rate recorded for the admission on this date.
+
+      - name: min_heart_rate
+        description: Minimum heart rate recorded for the admission on this date.
+
+      - name: avg_temperature
+        description: Average body temperature recorded for the admission on this date.
+
+      - name: max_temperature
+        description: Maximum temperature recorded for the admission on this date.
+
+      - name: min_temperature
+        description: Minimum temperature recorded for the admission on this date.
+
+  - name: high_risk_patients
+    description: |
+      Flags patients who have experienced high-risk vital signs during any of their admissions,
+      specifically based on heart rate > 90 or temperature > 100.4°F.
+
+    columns:
+      - name: patient_id
+        description: Unique identifier for the patient.
+        tests:
+          - not_null
+          - unique
+
+      - name: high_heart_rate
+        description: True if the patient had any heart rate measurement greater than 90 bpm.
+        tests:
+          - not_null
+
+      - name: high_temperature
+        description: True if the patient had any body temperature greater than 100.4°F.
+        tests:
+          - not_null
+
+      - name: is_high_risk
+        description: True if either heart rate or temperature thresholds were exceeded.
+        tests:
+          - not_null
+  - name: admission_reason_summary
+    description: |
+      Summarizes admissions by reason, showing total admissions, average length of stay,
+      and readmission rate for each reason category.
+
+    columns:
+      - name: reason
+        description: The reason for the patient’s admission (e.g., Pneumonia, Fracture).
+        tests:
+          - not_null
+
+      - name: total_admissions
+        description: Total number of admissions associated with this reason.
+        tests:
+          - not_null
+
+      - name: avg_length_of_stay
+        description: Average number of days patients stayed in the hospital for this reason.
+
+      - name: readmission_rate
+        description: Percentage of admissions for this reason that resulted in a readmission (0.0 to 1.0).
