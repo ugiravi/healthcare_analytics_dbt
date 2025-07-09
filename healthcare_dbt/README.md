@@ -1,15 +1,32 @@
-Welcome to your new dbt project!
+# Healthcare Analytics DBT Project
 
-### Using the starter project
+This project uses dbt to build a data pipeline for healthcare analytics. It integrates patient demographic, admission, and vital sign data to create enriched datasets and analytics-ready marts.
 
-Try running the following commands:
-- dbt run
-- dbt test
+## Project Structure
 
+- **staging**: Raw data transformations and cleaning
+- **intermediate**: Business logic and data aggregation models
+- **marts**: Final aggregated tables for analytics and reporting
+- **macros**: Custom reusable SQL functions for data transformations
+- **seeds**: Static CSV data files loaded into the warehouse
+- **snapshots**: Historical snapshots of patient data for auditing
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## Features
+
+- Cleans and normalizes gender data
+- Calculates patient age at admission
+- Flags readmissions and high-risk vital signs
+- Calculates length of stay and vital sign summaries
+- Implements incremental models for efficient data processing
+
+## Technologies
+
+- dbt (Data Build Tool)
+- PostgreSQL (data warehouse)
+- SQL & Jinja Macros for transformations
+
+## How to Run
+
+1. Install dependencies:
+   ```bash
+   dbt deps
