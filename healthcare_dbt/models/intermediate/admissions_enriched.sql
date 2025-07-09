@@ -9,6 +9,7 @@ select
     p.first_name,
     p.last_name,
     p.full_name,
+    p.date_of_birth,
     p.gender_cleaned as gender,
     {{calculate_age('a.admission_date', 'p.date_of_birth')}} as age_at_admission
 from {{ ref('stg_admissions') }} a

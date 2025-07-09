@@ -6,7 +6,7 @@
     end
 {% endmacro %}
 
-{% macro calculate_age(dob, ref_date) %}
+{% macro calculate_age(ref_date, dob) %}
     case 
         when {{ dob }} is not null and {{ ref_date }} is not null 
         then date_part('year', age({{ ref_date }}, {{ dob }}))
