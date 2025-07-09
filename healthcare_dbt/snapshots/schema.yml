@@ -1,0 +1,12 @@
+models:
+  - name: patients_snapshot
+    description: "Snapshot of patient demographic changes over time"
+    columns:
+      - name: patient_id
+        tests:
+          - unique
+          - not_null
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['Male', 'Female', 'Other']

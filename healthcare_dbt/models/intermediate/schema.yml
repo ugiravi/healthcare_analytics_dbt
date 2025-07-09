@@ -168,3 +168,13 @@ models:
 
       - name: readmission_rate
         description: Percentage of admissions for this reason that resulted in a readmission (0.0 to 1.0).
+  - name: incremental_admissions
+    description: "Incremental model of admissions with length_of_stay"
+    columns:
+      - name: admission_id
+        tests:
+          - unique
+          - not_null
+      - name: length_of_stay
+        tests:
+          - not_null

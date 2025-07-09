@@ -1,3 +1,4 @@
+-- models/marts/patient_summary.sql
 select
     p.patient_id,
     p.full_name,
