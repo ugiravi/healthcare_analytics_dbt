@@ -71,10 +71,20 @@ models:
               field: admission_id
       - name: heart_rate
         description: "Heart rate measurement"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 30
+              max_value: 180
       - name: blood_pressure
         description: "Blood pressure measurement"
       - name: temperature
         description: "Body temperature"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 90.0
+              max_value: 105.0
       - name: date
         description: "Timestamp of vital signs"
         tests:

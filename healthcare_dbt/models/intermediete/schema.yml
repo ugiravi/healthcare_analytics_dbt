@@ -50,13 +50,14 @@ models:
         description: Age of the patient (in years) at the time of admission.
 
       - name: length_of_stay
-        description: Number of days between admission and discharge.
+        description: "Number of days between admission and discharge"
         tests:
-          - not_null
-          - expression_is_true:
-              expression: "length_of_stay >= 0"
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              strictly: true
 
-  - name: readmission_flags
+
+  - name: readmissions_flags
     description: |
       Aggregates admissions per patient to calculate total admissions,
       total readmissions, and flags if a patient was ever readmitted.

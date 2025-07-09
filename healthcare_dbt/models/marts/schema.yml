@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: admissions
+  - name: admissions_marts
     description: "Mart model combining admissions with vital summaries and readmission flags."
     columns:
       - name: admission_id
